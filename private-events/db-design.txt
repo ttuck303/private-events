@@ -1,0 +1,38 @@
+User
+	(can be host or invitee)
+
+	user_id:integer
+	name:string
+
+	has_many :hosted_events, class_name: "Event", foreign_key :host_id
+	has_many :attended_events, through :invitations
+	has_many :invitations, foreign_key :
+
+Event
+
+	location:string
+	date:date
+	host_id:integer
+
+
+	belongs_to :host, class_name: "User"
+	has_many :attendees, through :invitations
+	has_many :invitations, (through event_id)
+
+
+Invitation
+
+	no id
+
+	event_id
+	attendee_id
+
+	belongs_to :attendee, class_name "User"
+	belongs_to :event
+
+
+Event belongs to host
+Event has many invitees through invitations
+Hosts and Invitees are User Class
+Invitations link events and invitees
+

@@ -1,0 +1,4 @@
+A simple Eventbrite site that allows users to create and attend events.
+
+For theodinproject.com
+
